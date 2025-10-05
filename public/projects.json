@@ -1,0 +1,24 @@
+{
+  "projects": [
+    {
+      "id": "rh-home",
+      "name": "Custom Home – Richmond Hill",
+      "type": "Residential",
+      "year": 2024,
+      "meta": "Panel upgrade • Lighting • EV charger",
+      "location": "Richmond Hill, ON",
+      "summary": "Full electrical for a custom 2-storey build: 200A service upgrade, layered lighting plan, EV charger, and rough-in for future solar.",
+      "images": ["/images/residential-1.jpg"]
+    },
+    {
+      "id": "markham-retail",
+      "name": "Retail Build-out – Markham",
+      "type": "Commercial",
+      "year": 2023,
+      "meta": "New circuits • Track lighting",
+      "location": "Markham, ON",
+      "summary": "Tenant fit-out: new circuits for POS and HVAC, 3 lighting zones with dimming, and emergency lighting to code.",
+      "images": ["/images/commercial-1.jpg"]
+    }
+  ]
+}

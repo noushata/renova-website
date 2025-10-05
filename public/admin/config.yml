@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway    # works great on Netlify
+  branch: main         # or your default branch
+
+media_folder: "public/images"   # where uploaded images go in the repo
+public_folder: "/images"        # how the site references them
+
+publish_mode: editorial_workflow
+
+collections:
+  - label: "Projects"
+    name: "projects"
+    files:
+      - label: "Projects List"
+        name: "projectsFile"
+        file: "public/projects.json"
+        format: "json"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            collapsed: true
+            summary: "{{name}} ({{type}} • {{year}})"
+            fields:
+              - { label: "ID", name: "id", widget: "string", hint: "Unique slug (no spaces)" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Type", name: "type", widget: "select", options: ["Residential","Commercial","Industrial"], required: false }
+              - { label: "Year", name: "year", widget: "number", value_type: "int", required: false }
+              - { label: "Meta", name: "meta", widget: "string", required: false }
+              - { label: "Location", name: "location", widget: "string", required: false }
+              - { label: "Summary", name: "summary", widget: "text", required: false }
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                required: false
+                field: { label: "Image", name: "image", widget: "image" }
