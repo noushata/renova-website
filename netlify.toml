@@ -1,0 +1,11 @@
+# Serve the CMS from its own static index
+[[redirects]]
+from = "/admin/*"
+to = "/admin/index.html"
+status = 200
+
+# SPA fallback for everything else
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
