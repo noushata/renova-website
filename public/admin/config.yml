@@ -1,36 +1,19 @@
 backend:
-  name: git-gateway    # works great on Netlify
-  branch: main         # or your default branch
+  name: git-gateway
+  branch: main
 
-media_folder: "public/images"   # where uploaded images go in the repo
-public_folder: "/images"        # how the site references them
-
-publish_mode: editorial_workflow
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
 collections:
-  - label: "Projects"
-    name: "projects"
-    files:
-      - label: "Projects List"
-        name: "projectsFile"
-        file: "public/projects.json"
-        format: "json"
-        fields:
-          - label: "Projects"
-            name: "projects"
-            widget: "list"
-            collapsed: true
-            summary: "{{name}} ({{type}} • {{year}})"
-            fields:
-              - { label: "ID", name: "id", widget: "string", hint: "Unique slug (no spaces)" }
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Type", name: "type", widget: "select", options: ["Residential","Commercial","Industrial"], required: false }
-              - { label: "Year", name: "year", widget: "number", value_type: "int", required: false }
-              - { label: "Meta", name: "meta", widget: "string", required: false }
-              - { label: "Location", name: "location", widget: "string", required: false }
-              - { label: "Summary", name: "summary", widget: "text", required: false }
-              - label: "Images"
-                name: "images"
-                widget: "list"
-                required: false
-                field: { label: "Image", name: "image", widget: "image" }
+  - name: "projects"
+    label: "Projects"
+    folder: "public/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Project Title", widget: "string" }
+      - { name: "category", label: "Category", widget: "select", options: ["Residential", "Commercial", "Industrial"] }
+      - { name: "location", label: "Location", widget: "string" }
+      - { name: "description", label: "Description", widget: "text" }
+      - { name: "image", label: "Project Image", widget: "image" }
